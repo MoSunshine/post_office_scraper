@@ -249,7 +249,10 @@ class hermes_scraper(scraper):
             try:
                 driver.get("https://www.myhermes.de/paketshop/")
                 time.sleep(2)
-                driver.find_element_by_class_name("uc-btn-accept").click()
+                try:
+                    driver.find_element_by_class_name("uc-btn-accept").click()
+                except Exception as e:
+                    pass
                 time.sleep(1)
                 driver.refresh()
                 time.sleep(2)
@@ -400,7 +403,7 @@ class dpd_scraper(scraper):
                     try: 
                         driver.find_element_by_id("ContentPlaceHolder1_modShopFinder_repShopList_btnFindMoreShops").click()
                         time.sleep(2)
-                    except NoSuchElementException:
+                    except Exception as e:
                         end_of_results = True
                 ###extract data###
                 shop_list = driver.find_elements_by_class_name("Shop")
