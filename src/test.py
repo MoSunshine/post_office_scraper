@@ -75,3 +75,7 @@ pickle.dump( your_elements , open("../webdriver/code.html","wb"))
 # time.sleep(3)
 # shop_list = driver.find_elements_by_class_name("shop-list-item")
 # =============================================================================
+
+
+result_dataset = pd.read_csv("../results/shop_list_dhl.csv",sep=',',encoding='utf-8').to_dict('records')
+result_id = pd.read_csv("../results/shop_list_dhl.csv",sep=',',encoding='utf-8')['id'].tolist()
